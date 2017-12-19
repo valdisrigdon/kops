@@ -2317,6 +2317,15 @@ func (in *KubeControllerManagerConfig) DeepCopyInto(out *KubeControllerManagerCo
 			(*out)[key] = val
 		}
 	}
+	if in.Profiling != nil {
+		in, out := &in.Profiling, &out.Profiling
+		if *in == nil {
+			*out = nil
+		} else {
+			*out = new(bool)
+			**out = **in
+		}
+	}
 	return
 }
 
