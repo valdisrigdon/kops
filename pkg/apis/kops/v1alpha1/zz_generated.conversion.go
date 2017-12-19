@@ -1946,6 +1946,7 @@ func autoConvert_v1alpha1_KubeControllerManagerConfig_To_kops_KubeControllerMana
 	out.HorizontalPodAutoscalerUpscaleDelay = in.HorizontalPodAutoscalerUpscaleDelay
 	out.HorizontalPodAutoscalerUseRestClients = in.HorizontalPodAutoscalerUseRestClients
 	out.FeatureGates = in.FeatureGates
+	out.Profiling = in.Profiling
 	return nil
 }
 
@@ -1982,6 +1983,7 @@ func autoConvert_kops_KubeControllerManagerConfig_To_v1alpha1_KubeControllerMana
 	out.HorizontalPodAutoscalerUpscaleDelay = in.HorizontalPodAutoscalerUpscaleDelay
 	out.HorizontalPodAutoscalerUseRestClients = in.HorizontalPodAutoscalerUseRestClients
 	out.FeatureGates = in.FeatureGates
+	out.Profiling = in.Profiling
 	return nil
 }
 

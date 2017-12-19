@@ -231,6 +231,7 @@ spec:
     horizontalPodAutoscalerSyncPeriod: 15s
     horizontalPodAutoscalerDownscaleDelay: 5m0s
     horizontalPodAutoscalerUpscaleDelay: 3m0s
+    profiling: true
 ```
 
 For more details on `horizontalPodAutoscaler` flags see the [HPA docs](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/).

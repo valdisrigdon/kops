@@ -328,6 +328,8 @@ type KubeControllerManagerConfig struct {
 	HorizontalPodAutoscalerUseRestClients *bool `json:"horizontalPodAutoscalerUseRestClients,omitempty" flag:"horizontal-pod-autoscaler-use-rest-clients"`
 	// FeatureGates is set of key=value pairs that describe feature gates for alpha/experimental features.
 	FeatureGates map[string]string `json:"featureGates,omitempty" flag:"feature-gates"`
+        // Enable profiling via web interface.
+        Profiling *bool `json:"profiling,omitempty" flag:"profiling"`
 }
 
 type CloudControllerManagerConfig struct {
