@@ -2054,6 +2054,9 @@ func autoConvert_v1alpha1_KubeSchedulerConfig_To_kops_KubeSchedulerConfig(in *Ku
 	out.Master = in.Master
 	out.LogLevel = in.LogLevel
 	out.Image = in.Image
+	if err := v1.Convert_bool_To_Pointer_bool(&in.Profiling, &out.Profiling, s); err != nil {
+		return err
+	}
 	if in.LeaderElection != nil {
 		in, out := &in.LeaderElection, &out.LeaderElection
 		*out = new(kops.LeaderElectionConfiguration)
@@ -2077,6 +2080,9 @@ func autoConvert_kops_KubeSchedulerConfig_To_v1alpha1_KubeSchedulerConfig(in *ko
 	out.Master = in.Master
 	out.LogLevel = in.LogLevel
 	out.Image = in.Image
+	if err := v1.Convert_Pointer_bool_To_bool(&in.Profiling, &out.Profiling, s); err != nil {
+		return err
+	}
 	if in.LeaderElection != nil {
 		in, out := &in.LeaderElection, &out.LeaderElection
 		*out = new(LeaderElectionConfiguration)
