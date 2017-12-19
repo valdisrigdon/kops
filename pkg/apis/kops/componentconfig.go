@@ -362,6 +362,8 @@ type KubeSchedulerConfig struct {
 	LogLevel int32 `json:"logLevel,omitempty" flag:"v"`
 	// Image is the docker image to use
 	Image string `json:"image,omitempty"`
+	// Enable profiling via web interface
+	Profiling *bool `json:"profiling,omitempty" flag:"profiling"`
 	// LeaderElection defines the configuration of leader election client.
 	LeaderElection *LeaderElectionConfiguration `json:"leaderElection,omitempty"`
 	// UsePolicyConfigMap enable setting the scheduler policy from a configmap

@@ -215,6 +215,7 @@ This block contains configurations for `kube-scheduler`.  See https://kubernetes
  spec:
    kubeScheduler:
      usePolicyConfigMap: true
+     profiling: true
 ```
 
 Will make kube-scheduler use the scheduler policy from configmap "scheduler-policy" in namespace kube-system.
