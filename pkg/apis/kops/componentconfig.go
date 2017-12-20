@@ -309,6 +309,10 @@ type KubeAPIServerConfig struct {
 	EtcdQuorumRead *bool `json:"etcdQuorumRead,omitempty" flag:"etcd-quorum-read"`
 	// Enable profiling via web interface
 	Profiling *bool `json:"profiling,omitempty" flag:"profiling"`
+	// Verify service account token
+	ServiceAccountLookup *bool `json:"serviceAccountLookup,omitempty" flag:"service-account-lookup"`
+	// Repair malformed requests from clients 
+	RepairMalformedUpdates *bool `json:"repairMalformedUpdates,omitempty" flag:"repair-malformed-updates"`
 }
 
 // KubeControllerManagerConfig is the configuration for the controller

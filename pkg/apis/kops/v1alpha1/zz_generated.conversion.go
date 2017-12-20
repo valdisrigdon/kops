@@ -1910,6 +1910,8 @@ func autoConvert_v1alpha1_KubeAPIServerConfig_To_kops_KubeAPIServerConfig(in *Ku
 	out.FeatureGates = in.FeatureGates
 	out.MaxRequestsInflight = in.MaxRequestsInflight
 	out.Profiling = in.Profiling
+	out.ServiceAccountLookup = in.ServiceAccountLookup
+	out.RepairMalformedUpdates = in.RepairMalformedUpdates
 	return nil
 }
 
@@ -1974,6 +1976,8 @@ func autoConvert_kops_KubeAPIServerConfig_To_v1alpha1_KubeAPIServerConfig(in *ko
 	out.FeatureGates = in.FeatureGates
 	out.MaxRequestsInflight = in.MaxRequestsInflight
 	out.Profiling = in.Profiling
+	out.ServiceAccountLookup = in.ServiceAccountLookup
+	out.RepairMalformedUpdates = in.RepairMalformedUpdates
 	return nil
 }
 
