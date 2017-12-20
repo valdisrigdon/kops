@@ -2482,6 +2482,24 @@ func (in *KubeAPIServerConfig) DeepCopyInto(out *KubeAPIServerConfig) {
 			**out = **in
 		}
 	}
+	if in.ServiceAccountLookup != nil {
+		in, out := &in.ServiceAccountLookup, &out.ServiceAccountLookup
+		if *in == nil {
+			*out = nil
+		} else {
+			*out = new(bool)
+			**out = **in
+		}
+	}
+	if in.RepairMalformedUpdates != nil {
+		in, out := &in.RepairMalformedUpdates, &out.RepairMalformedUpdates
+		if *in == nil {
+			*out = nil
+		} else {
+			*out = new(bool)
+			**out = **in
+		}
+	}
 	return
 }
 
