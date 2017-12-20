@@ -129,6 +129,14 @@ spec:
     oidcCAFile: /etc/kubernetes/ssl/kc-ca.pem
 ```
 
+### profiling flag
+
+```yaml
+spec:
+  kubeAPIServer:
+    profiling: true
+```
+
 #### audit logging
 
 Read more about this here: https://kubernetes.io/docs/admin/audit
