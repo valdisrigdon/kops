@@ -277,6 +277,10 @@ type KubeAPIServerConfig struct {
 	FeatureGates map[string]string `json:"featureGates,omitempty" flag:"feature-gates"`
 	// Enable profiling via web interface
 	Profiling *bool `json:"profiling,omitempty" flag:"profiling"`
+	// Verify service account token
+	ServiceAccountLookup *bool `json:"serviceAccountLookup,omitempty" flag:"service-account-lookup"`
+	// Repair malformed requests from clients 
+	RepairMalformedUpdates *bool `json:"repairMalformedUpdates,omitempty" flag:"repair-malformed-updates"`
 }
 
 // KubeControllerManagerConfig is the configuration for the controller

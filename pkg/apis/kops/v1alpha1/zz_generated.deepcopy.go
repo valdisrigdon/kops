@@ -2085,6 +2085,24 @@ func (in *KubeAPIServerConfig) DeepCopyInto(out *KubeAPIServerConfig) {
 			**out = **in
 		}
 	}
+	if in.ServiceAccountLookup != nil {
+		in, out := &in.ServiceAccountLookup, &out.ServiceAccountLookup
+		if *in == nil {
+			*out = nil
+		} else {
+			*out = new(bool)
+			**out = **in
+		}
+	}
+	if in.RepairMalformedUpdates != nil {
+		in, out := &in.RepairMalformedUpdates, &out.RepairMalformedUpdates
+		if *in == nil {
+			*out = nil
+		} else {
+			*out = new(bool)
+			**out = **in
+		}
+	}
 	return
 }
 
@@ -2487,15 +2505,6 @@ func (in *KubeletConfigSpec) DeepCopyInto(out *KubeletConfigSpec) {
 			*out = nil
 		} else {
 			*out = new(int32)
-			**out = **in
-		}
-	}
-	if in.ImagePullProgressDeadline != nil {
-		in, out := &in.ImagePullProgressDeadline, &out.ImagePullProgressDeadline
-		if *in == nil {
-			*out = nil
-		} else {
-			*out = new(v1.Duration)
 			**out = **in
 		}
 	}

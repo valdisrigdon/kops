@@ -1852,6 +1852,8 @@ func autoConvert_v1alpha1_KubeAPIServerConfig_To_kops_KubeAPIServerConfig(in *Ku
 	out.RequestheaderAllowedNames = in.RequestheaderAllowedNames
 	out.FeatureGates = in.FeatureGates
 	out.Profiling = in.Profiling
+	out.ServiceAccountLookup = in.ServiceAccountLookup
+	out.RepairMalformedUpdates = in.RepairMalformedUpdates
 	return nil
 }
 
@@ -1912,6 +1914,8 @@ func autoConvert_kops_KubeAPIServerConfig_To_v1alpha1_KubeAPIServerConfig(in *ko
 	out.RequestheaderAllowedNames = in.RequestheaderAllowedNames
 	out.FeatureGates = in.FeatureGates
 	out.Profiling = in.Profiling
+	out.ServiceAccountLookup = in.ServiceAccountLookup
+	out.RepairMalformedUpdates = in.RepairMalformedUpdates
 	return nil
 }
 
