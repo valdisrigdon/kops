@@ -305,9 +305,10 @@ type KubeAPIServerConfig struct {
 	FeatureGates map[string]string `json:"featureGates,omitempty" flag:"feature-gates"`
 	// MaxRequestsInflight The maximum number of non-mutating requests in flight at a given time.
 	MaxRequestsInflight int32 `json:"maxRequestsInflight,omitempty" flag:"max-requests-inflight" flag-empty:"0"`
-
 	// EtcdQuorumRead configures the etcd-quorum-read flag, which forces consistent reads from etcd
 	EtcdQuorumRead *bool `json:"etcdQuorumRead,omitempty" flag:"etcd-quorum-read"`
+  // Enable profiling via web interface.
+  Profiling *bool `json:"profiling,omitempty" flag:"profiling"`
 }
 
 // KubeControllerManagerConfig is the configuration for the controller
