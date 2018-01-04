@@ -156,6 +156,14 @@ type KubeletConfigSpec struct {
 	VolumeStatsAggPeriod *metav1.Duration `json:"volumeStatsAggPeriod,omitempty" flag:"volume-stats-agg-period"`
 	// Tells the Kubelet to fail to start if swap is enabled on the node.
 	FailSwapOn *bool `json:"failSwapOn,omitempty" flag:"fail-swap-on"`
+	// EventQps If > 0, limit event creations per second to this value. If 0, unlimited.
+	EventQPS int32 `json:"eventQps,omitempty" flag:"event-qps"`
+	// MakeIptablesUtilChains will ensure iptables utility rules are present on host.
+	MakeIptablesUtilChains *bool `json:"makeIptablesUtilChains,omitempty" flag:"make-iptables-util-chains"`
+	// CAdvisorPort The port of the localhost cAdvisor endpoint (set to 0 to disable) (default 4194)
+	CAdvisorPort *int32 `json:"cadvisorPort,omitempty" flag:"cadvisor-port"`
+	// ProtectKernelDefaults Default kubelet behaviour for kernel tuning. If set, kubelet errors if any of kernel tunables is different than kubelet defaults.
+	ProtectKernelDefaults *bool `json:"protectKernelDefaults,omitempty" flag:"protect-kernel-defaults"`
 }
 
 // KubeProxyConfig defines the configuration for a proxy
@@ -375,8 +383,8 @@ type KubeControllerManagerConfig struct {
 	HorizontalPodAutoscalerUseRestClients *bool `json:"horizontalPodAutoscalerUseRestClients,omitempty" flag:"horizontal-pod-autoscaler-use-rest-clients"`
 	// FeatureGates is set of key=value pairs that describe feature gates for alpha/experimental features.
 	FeatureGates map[string]string `json:"featureGates,omitempty" flag:"feature-gates"`
-        // Enable profiling via web interface.
-        Profiling *bool `json:"profiling,omitempty" flag:"profiling"`
+	// Enable profiling via web interface.
+	Profiling *bool `json:"profiling,omitempty" flag:"profiling"`
 }
 
 type CloudControllerManagerConfig struct {

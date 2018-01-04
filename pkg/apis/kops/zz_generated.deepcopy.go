@@ -2734,6 +2734,33 @@ func (in *KubeletConfigSpec) DeepCopyInto(out *KubeletConfigSpec) {
 			**out = **in
 		}
 	}
+	if in.MakeIptablesUtilChains != nil {
+		in, out := &in.MakeIptablesUtilChains, &out.MakeIptablesUtilChains
+		if *in == nil {
+			*out = nil
+		} else {
+			*out = new(bool)
+			**out = **in
+		}
+	}
+	if in.CAdvisorPort != nil {
+		in, out := &in.CAdvisorPort, &out.CAdvisorPort
+		if *in == nil {
+			*out = nil
+		} else {
+			*out = new(int32)
+			**out = **in
+		}
+	}
+	if in.ProtectKernelDefaults != nil {
+		in, out := &in.ProtectKernelDefaults, &out.ProtectKernelDefaults
+		if *in == nil {
+			*out = nil
+		} else {
+			*out = new(bool)
+			**out = **in
+		}
+	}
 	return
 }
 

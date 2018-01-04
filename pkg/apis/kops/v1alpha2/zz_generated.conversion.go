@@ -2508,6 +2508,10 @@ func autoConvert_v1alpha2_KubeletConfigSpec_To_kops_KubeletConfigSpec(in *Kubele
 	out.RuntimeRequestTimeout = in.RuntimeRequestTimeout
 	out.VolumeStatsAggPeriod = in.VolumeStatsAggPeriod
 	out.FailSwapOn = in.FailSwapOn
+	out.EventQPS = in.EventQPS
+	out.MakeIptablesUtilChains = in.MakeIptablesUtilChains
+	out.CAdvisorPort = in.CAdvisorPort
+	out.ProtectKernelDefaults = in.ProtectKernelDefaults
 	return nil
 }
 
@@ -2574,6 +2578,10 @@ func autoConvert_kops_KubeletConfigSpec_To_v1alpha2_KubeletConfigSpec(in *kops.K
 	out.RuntimeRequestTimeout = in.RuntimeRequestTimeout
 	out.VolumeStatsAggPeriod = in.VolumeStatsAggPeriod
 	out.FailSwapOn = in.FailSwapOn
+	out.EventQPS = in.EventQPS
+	out.MakeIptablesUtilChains = in.MakeIptablesUtilChains
+	out.CAdvisorPort = in.CAdvisorPort
+	out.ProtectKernelDefaults = in.ProtectKernelDefaults
 	return nil
 }
 

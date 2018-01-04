@@ -156,6 +156,14 @@ type KubeletConfigSpec struct {
 	VolumeStatsAggPeriod *metav1.Duration `json:"volumeStatsAggPeriod,omitempty" flag:"volume-stats-agg-period"`
 	// Tells the Kubelet to fail to start if swap is enabled on the node.
 	FailSwapOn *bool `json:"failSwapOn,omitempty" flag:"fail-swap-on"`
+	// EventQps If > 0, limit event creations per second to this value. If 0, unlimited.
+	EventQPS int32 `json:"eventQps,omitempty" flag:"event-qps"`
+	// MakeIptablesUtilChains will ensure iptables utility rules are present on host.
+	MakeIptablesUtilChains *bool `json:"makeIptablesUtilChains,omitempty" flag:"make-iptables-util-chains"`
+	// CAdvisorPort The port of the localhost cAdvisor endpoint (set to 0 to disable) (default 4194)
+	CAdvisorPort *int32 `json:"cadvisorPort,omitempty" flag:"cadvisor-port"`
+	// ProtectKernelDefaults Default kubelet behaviour for kernel tuning. If set, kubelet errors if any of kernel tunables is different than kubelet defaults.
+	ProtectKernelDefaults *bool `json:"protectKernelDefaults,omitempty" flag:"protect-kernel-defaults"`
 }
 
 // KubeProxyConfig defined the configuration for a proxy
@@ -311,7 +319,7 @@ type KubeAPIServerConfig struct {
 	Profiling *bool `json:"profiling,omitempty" flag:"profiling"`
 	// Verify service account token
 	ServiceAccountLookup *bool `json:"serviceAccountLookup,omitempty" flag:"service-account-lookup"`
-	// Repair malformed requests from clients 
+	// Repair malformed requests from clients
 	RepairMalformedUpdates *bool `json:"repairMalformedUpdates,omitempty" flag:"repair-malformed-updates"`
 }
 
