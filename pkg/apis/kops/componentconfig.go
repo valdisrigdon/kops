@@ -185,7 +185,7 @@ type KubeAPIServerConfig struct {
 	Image string `json:"image,omitempty"`
 	// DisableBasicAuth removes the --basic-auth-file flag
 	DisableBasicAuth bool `json:"disableBasicAuth,omitempty"`
-	// EnableTokenAuth removes the --token-auth-file flag
+	// DisableTokenAuth removes the --token-auth-file flag
 	DisableTokenAuth bool `json:"disableTokenAuth,omitempty"`
 	// LogLevel is the logging level of the api
 	LogLevel int32 `json:"logLevel,omitempty" flag:"v" flag-empty:"0"`

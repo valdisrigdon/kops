@@ -232,14 +232,20 @@ func (b *PKIModelBuilder) Build(c *fi.ModelBuilderContext) error {
 		c.AddTask(t)
 	}
 
-	// @@ The following are deprecated for > 1.6 and should be dropped at the appropreciate time
-	deprecated := []string{
-		"kubelet", "kube-proxy", "system:scheduler", "system:controller_manager",
-		"system:logging", "system:monitoring", "system:dns", "kube", "admin"}
-
-	for _, x := range deprecated {
-		t := &fitasks.Secret{Name: fi.String(x), Lifecycle: b.Lifecycle}
-		c.AddTask(t)
+	{
+		// @@ The following are deprecated for > 1.6 and should be dropped at the appropreciate time
+		deprecated := []string{}
+		if !b.KopsModelContext.Cluster.Spec.KubeAPIServer.DisableBasicAuth {
+			deprecated = append(deprecated, "kube")
+		}
+		if !b.KopsModelContext.Cluster.Spec.KubeAPIServer.DisableTokenAuth {
+			deprecated = append(deprecated, "kubelet", "kube-proxy", "system:scheduler", "system:controller_manager",
+				"system:logging", "system:monitoring", "system:dns", "admin")
+		}
+		for _, x := range deprecated {
+			t := &fitasks.Secret{Name: fi.String(x), Lifecycle: b.Lifecycle}
+			c.AddTask(t)
+		}
 	}
 
 	{
