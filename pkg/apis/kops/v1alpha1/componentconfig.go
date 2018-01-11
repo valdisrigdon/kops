@@ -164,6 +164,10 @@ type KubeletConfigSpec struct {
 	CAdvisorPort *int32 `json:"cadvisorPort,omitempty" flag:"cadvisor-port"`
 	// ProtectKernelDefaults Default kubelet behaviour for kernel tuning. If set, kubelet errors if any of kernel tunables is different than kubelet defaults.
 	ProtectKernelDefaults *bool `json:"protectKernelDefaults,omitempty" flag:"protect-kernel-defaults"`
+	// TLSCertFile File containing x509 Certificate used for serving HTTPS (with intermediate certs, if any, concatenated after server cert).
+	TLSCertFile string `json:"tlsCertFile,omitempty" flag:"tls-cert-file"`
+	// File containing x509 private key matching --tls-cert-file.
+	TLSPrivateKeyFile string `json:"tlsPrivateKeyFile,omitempty" flag:"tls-private-key-file"`
 }
 
 // KubeProxyConfig defines the configuration for a proxy
