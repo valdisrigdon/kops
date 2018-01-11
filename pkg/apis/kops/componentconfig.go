@@ -158,6 +158,10 @@ type KubeletConfigSpec struct {
 	CAdvisorPort *int32 `json:"cadvisorPort,omitempty" flag:"cadvisor-port"`
 	// ProtectKernelDefaults Default kubelet behaviour for kernel tuning. If set, kubelet errors if any of kernel tunables is different than kubelet defaults.
 	ProtectKernelDefaults *bool `json:"protectKernelDefaults,omitempty" flag:"protect-kernel-defaults"`
+	// TLSCertFile File containing x509 Certificate used for serving HTTPS (with intermediate certs, if any, concatenated after server cert).
+	TLSCertFile string `json:"tlsCertFile,omitempty" flag:"tls-cert-file"`
+	// File containing x509 private key matching --tls-cert-file.
+	TLSPrivateKeyFile string `json:"tlsPrivateKeyFile,omitempty" flag:"tls-private-key-file"`
 }
 
 // KubeProxyConfig defined the configuration for a proxy
@@ -229,6 +233,8 @@ type KubeAPIServerConfig struct {
 	KubeletClientCertificate string `json:"kubeletClientCertificate,omitempty" flag:"kubelet-client-certificate"`
 	// KubeletClientKey is the path of a private to secure communication between api and kubelet
 	KubeletClientKey string `json:"kubeletClientKey,omitempty" flag:"kubelet-client-key"`
+	// KubeletCertificateAuthority is the path to a cert file for the certificate authority.
+	KubeletCertificateAuthority string `json:"kubeletCertificateAuthority,omitempty" flag:"kubelet-certificate-authority"`
 	// AnonymousAuth indicates if anonymous authentication is permitted
 	AnonymousAuth *bool `json:"anonymousAuth,omitempty" flag:"anonymous-auth"`
 	// KubeletPreferredAddressTypes is a list of the preferred NodeAddressTypes to use for kubelet connections

@@ -73,6 +73,15 @@ func (b *SecretBuilder) Build(c *fi.ModelBuilderContext) error {
 			c.AddTask(t)
 		}
 	}
+	{
+		if err := b.writeCertificate(c, "kubelet-tls"); err != nil {
+			return err
+		}
+
+		if err := b.writePrivateKey(c, "kubelet-tls"); err != nil {
+			return err
+		}
+	}
 
 	// if we are not a master we can stop here
 	if !b.IsMaster {

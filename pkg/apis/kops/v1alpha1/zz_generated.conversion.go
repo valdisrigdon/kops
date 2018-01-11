@@ -1825,6 +1825,7 @@ func autoConvert_v1alpha1_KubeAPIServerConfig_To_kops_KubeAPIServerConfig(in *Ku
 	out.RuntimeConfig = in.RuntimeConfig
 	out.KubeletClientCertificate = in.KubeletClientCertificate
 	out.KubeletClientKey = in.KubeletClientKey
+	out.KubeletCertificateAuthority = in.KubeletCertificateAuthority
 	out.AnonymousAuth = in.AnonymousAuth
 	out.KubeletPreferredAddressTypes = in.KubeletPreferredAddressTypes
 	out.StorageBackend = in.StorageBackend
@@ -1887,6 +1888,7 @@ func autoConvert_kops_KubeAPIServerConfig_To_v1alpha1_KubeAPIServerConfig(in *ko
 	out.RuntimeConfig = in.RuntimeConfig
 	out.KubeletClientCertificate = in.KubeletClientCertificate
 	out.KubeletClientKey = in.KubeletClientKey
+	out.KubeletCertificateAuthority = in.KubeletCertificateAuthority
 	out.AnonymousAuth = in.AnonymousAuth
 	out.KubeletPreferredAddressTypes = in.KubeletPreferredAddressTypes
 	out.StorageBackend = in.StorageBackend
@@ -2170,6 +2172,8 @@ func autoConvert_v1alpha1_KubeletConfigSpec_To_kops_KubeletConfigSpec(in *Kubele
 	out.MakeIptablesUtilChains = in.MakeIptablesUtilChains
 	out.CAdvisorPort = in.CAdvisorPort
 	out.ProtectKernelDefaults = in.ProtectKernelDefaults
+	out.TLSCertFile = in.TLSCertFile
+	out.TLSPrivateKeyFile = in.TLSPrivateKeyFile
 	return nil
 }
 
@@ -2238,6 +2242,8 @@ func autoConvert_kops_KubeletConfigSpec_To_v1alpha1_KubeletConfigSpec(in *kops.K
 	out.MakeIptablesUtilChains = in.MakeIptablesUtilChains
 	out.CAdvisorPort = in.CAdvisorPort
 	out.ProtectKernelDefaults = in.ProtectKernelDefaults
+	out.TLSCertFile = in.TLSCertFile
+	out.TLSPrivateKeyFile = in.TLSPrivateKeyFile
 	return nil
 }
 

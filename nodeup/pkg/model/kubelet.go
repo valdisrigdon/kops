@@ -383,6 +383,8 @@ func (b *KubeletBuilder) buildKubeletConfigSpec() (*kops.KubeletConfigSpec, erro
 	if b.UseSecureKubelet() {
 		// @TODO these filenames need to be a constant somewhere
 		c.ClientCAFile = filepath.Join(b.PathSrvKubernetes(), "ca.crt")
+		c.TLSCertFile = filepath.Join(b.PathSrvKubernetes(), "kubelet-tls.cert")
+		c.TLSPrivateKeyFile = filepath.Join(b.PathSrvKubernetes(), "kubelet-tls.key")
 	}
 
 	if b.InstanceGroup.Spec.Kubelet != nil {

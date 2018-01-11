@@ -181,6 +181,7 @@ func (b *KubeAPIServerBuilder) buildPod() (*v1.Pod, error) {
 		// @note we are making assumption were using the ones created by the pki model, not custom defined ones
 		kubeAPIServer.KubeletClientCertificate = filepath.Join(b.PathSrvKubernetes(), "kubelet-api.pem")
 		kubeAPIServer.KubeletClientKey = filepath.Join(b.PathSrvKubernetes(), "kubelet-api-key.pem")
+		kubeAPIServer.KubeletCertificateAuthority = filepath.Join(b.PathSrvKubernetes(), "ca.crt")
 	}
 
 	if b.IsKubernetesGTE("1.7") {

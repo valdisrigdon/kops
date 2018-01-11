@@ -70,6 +70,18 @@ func (b *PKIModelBuilder) Build(c *fi.ModelBuilderContext) error {
 		})
 	}
 	{
+		alternativeNames := []string{fmt.Sprintf("*.ec2.internal")}
+		t := &fitasks.Keypair{
+			Name:           fi.String("kubelet-tls"),
+			Lifecycle:      b.Lifecycle,
+			AlternateNames: alternativeNames,
+			Subject:        "cn=kubelet-tls",
+			Type:           "server",
+			Signer:         defaultCA,
+		}
+		c.AddTask(t)
+	}
+	{
 		t := &fitasks.Keypair{
 			Name:      fi.String("kube-scheduler"),
 			Lifecycle: b.Lifecycle,
