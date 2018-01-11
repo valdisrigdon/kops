@@ -242,6 +242,8 @@ type KubeAPIServerConfig struct {
 	KubeletClientCertificate string `json:"kubeletClientCertificate,omitempty" flag:"kubelet-client-certificate"`
 	// KubeletClientKey is the path of a private to secure communication between api and kubelet
 	KubeletClientKey string `json:"kubeletClientKey,omitempty" flag:"kubelet-client-key"`
+	// KubeletCertificateAuthority is the path to a cert file for the certificate authority.
+	KubeletCertificateAuthority string `json:"kubeletCertificateAuthority,omitempty" flag:"kubelet-certificate-authority"`
 	// AnonymousAuth indicates if anonymous authentication is permitted
 	AnonymousAuth *bool `json:"anonymousAuth,omitempty" flag:"anonymous-auth"`
 	// KubeletPreferredAddressTypes is a list of the preferred NodeAddressTypes to use for kubelet connections
