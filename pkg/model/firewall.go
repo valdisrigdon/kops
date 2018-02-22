@@ -65,16 +65,16 @@ func (b *FirewallModelBuilder) buildNodeRules(c *fi.ModelBuilderContext) error {
 	}
 
 	// Allow full egress
-	{
-		t := &awstasks.SecurityGroupRule{
-			Name:          s("node-egress"),
-			Lifecycle:     b.Lifecycle,
-			SecurityGroup: b.LinkToSecurityGroup(kops.InstanceGroupRoleNode),
-			Egress:        fi.Bool(true),
-			CIDR:          s("0.0.0.0/0"),
-		}
-		c.AddTask(t)
-	}
+	// {
+	// 	t := &awstasks.SecurityGroupRule{
+	// 		Name:          s("node-egress"),
+	// 		Lifecycle:     b.Lifecycle,
+	// 		SecurityGroup: b.LinkToSecurityGroup(kops.InstanceGroupRoleNode),
+	// 		Egress:        fi.Bool(true),
+	// 		CIDR:          s("0.0.0.0/0"),
+	// 	}
+	// 	c.AddTask(t)
+	// }
 
 	// Nodes can talk to nodes
 	{
@@ -339,16 +339,16 @@ func (b *FirewallModelBuilder) buildMasterRules(c *fi.ModelBuilderContext) error
 	}
 
 	// Allow full egress
-	{
-		t := &awstasks.SecurityGroupRule{
-			Name:          s("master-egress"),
-			Lifecycle:     b.Lifecycle,
-			SecurityGroup: b.LinkToSecurityGroup(kops.InstanceGroupRoleMaster),
-			Egress:        fi.Bool(true),
-			CIDR:          s("0.0.0.0/0"),
-		}
-		c.AddTask(t)
-	}
+	// {
+	// 	t := &awstasks.SecurityGroupRule{
+	// 		Name:          s("master-egress"),
+	// 		Lifecycle:     b.Lifecycle,
+	// 		SecurityGroup: b.LinkToSecurityGroup(kops.InstanceGroupRoleMaster),
+	// 		Egress:        fi.Bool(true),
+	// 		CIDR:          s("0.0.0.0/0"),
+	// 	}
+	// 	c.AddTask(t)
+	// }
 
 	// Masters can talk to masters
 	{

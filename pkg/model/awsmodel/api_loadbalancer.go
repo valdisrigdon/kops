@@ -157,13 +157,25 @@ func (b *APILoadBalancerBuilder) Build(c *fi.ModelBuilderContext) error {
 
 	// Allow traffic from ELB to egress freely
 	{
+		// t := &awstasks.SecurityGroupRule{
+		// 	Name:      s("api-elb-egress"),
+		// 	Lifecycle: b.SecurityLifecycle,
+		//
+		// 	SecurityGroup: b.LinkToELBSecurityGroup("api"),
+		// 	Egress:        fi.Bool(true),
+		// 	CIDR:          s("0.0.0.0/0"),
+		// }
+		// Allow traffic from ELB to 443 master nodes
 		t := &awstasks.SecurityGroupRule{
 			Name:      s("api-elb-egress"),
 			Lifecycle: b.SecurityLifecycle,
 
 			SecurityGroup: b.LinkToELBSecurityGroup("api"),
+			SourceGroup:   b.LinkToSecurityGroup(kops.InstanceGroupRoleMaster),
 			Egress:        fi.Bool(true),
-			CIDR:          s("0.0.0.0/0"),
+			FromPort:      i64(443),
+			ToPort:        i64(443),
+			Protocol:      s("tcp"),
 		}
 		c.AddTask(t)
 	}
