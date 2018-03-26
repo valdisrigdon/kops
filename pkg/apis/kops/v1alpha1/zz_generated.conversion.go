@@ -1934,6 +1934,9 @@ func autoConvert_v1alpha1_KubeAPIServerConfig_To_kops_KubeAPIServerConfig(in *Ku
 	out.FeatureGates = in.FeatureGates
 	out.MaxRequestsInflight = in.MaxRequestsInflight
 	out.EtcdQuorumRead = in.EtcdQuorumRead
+	out.Profiling = in.Profiling
+	out.ServiceAccountLookup = in.ServiceAccountLookup
+	out.RepairMalformedUpdates = in.RepairMalformedUpdates
 	return nil
 }
 
@@ -1998,6 +2001,9 @@ func autoConvert_kops_KubeAPIServerConfig_To_v1alpha1_KubeAPIServerConfig(in *ko
 	out.FeatureGates = in.FeatureGates
 	out.MaxRequestsInflight = in.MaxRequestsInflight
 	out.EtcdQuorumRead = in.EtcdQuorumRead
+	out.Profiling = in.Profiling
+	out.ServiceAccountLookup = in.ServiceAccountLookup
+	out.RepairMalformedUpdates = in.RepairMalformedUpdates
 	return nil
 }
 
@@ -2038,6 +2044,7 @@ func autoConvert_v1alpha1_KubeControllerManagerConfig_To_kops_KubeControllerMana
 	out.HorizontalPodAutoscalerUpscaleDelay = in.HorizontalPodAutoscalerUpscaleDelay
 	out.HorizontalPodAutoscalerUseRestClients = in.HorizontalPodAutoscalerUseRestClients
 	out.FeatureGates = in.FeatureGates
+	out.Profiling = in.Profiling
 	return nil
 }
 
@@ -2078,6 +2085,7 @@ func autoConvert_kops_KubeControllerManagerConfig_To_v1alpha1_KubeControllerMana
 	out.HorizontalPodAutoscalerUpscaleDelay = in.HorizontalPodAutoscalerUpscaleDelay
 	out.HorizontalPodAutoscalerUseRestClients = in.HorizontalPodAutoscalerUseRestClients
 	out.FeatureGates = in.FeatureGates
+	out.Profiling = in.Profiling
 	return nil
 }
 
@@ -2156,6 +2164,9 @@ func autoConvert_v1alpha1_KubeSchedulerConfig_To_kops_KubeSchedulerConfig(in *Ku
 	out.Master = in.Master
 	out.LogLevel = in.LogLevel
 	out.Image = in.Image
+	if err := v1.Convert_bool_To_Pointer_bool(&in.Profiling, &out.Profiling, s); err != nil {
+		return err
+	}
 	if in.LeaderElection != nil {
 		in, out := &in.LeaderElection, &out.LeaderElection
 		*out = new(kops.LeaderElectionConfiguration)
@@ -2179,6 +2190,9 @@ func autoConvert_kops_KubeSchedulerConfig_To_v1alpha1_KubeSchedulerConfig(in *ko
 	out.Master = in.Master
 	out.LogLevel = in.LogLevel
 	out.Image = in.Image
+	if err := v1.Convert_Pointer_bool_To_bool(&in.Profiling, &out.Profiling, s); err != nil {
+		return err
+	}
 	if in.LeaderElection != nil {
 		in, out := &in.LeaderElection, &out.LeaderElection
 		*out = new(LeaderElectionConfiguration)
@@ -2256,6 +2270,10 @@ func autoConvert_v1alpha1_KubeletConfigSpec_To_kops_KubeletConfigSpec(in *Kubele
 	out.RuntimeRequestTimeout = in.RuntimeRequestTimeout
 	out.VolumeStatsAggPeriod = in.VolumeStatsAggPeriod
 	out.FailSwapOn = in.FailSwapOn
+	out.EventQPS = in.EventQPS
+	out.MakeIptablesUtilChains = in.MakeIptablesUtilChains
+	out.CAdvisorPort = in.CAdvisorPort
+	out.ProtectKernelDefaults = in.ProtectKernelDefaults
 	return nil
 }
 
@@ -2322,6 +2340,10 @@ func autoConvert_kops_KubeletConfigSpec_To_v1alpha1_KubeletConfigSpec(in *kops.K
 	out.RuntimeRequestTimeout = in.RuntimeRequestTimeout
 	out.VolumeStatsAggPeriod = in.VolumeStatsAggPeriod
 	out.FailSwapOn = in.FailSwapOn
+	out.EventQPS = in.EventQPS
+	out.MakeIptablesUtilChains = in.MakeIptablesUtilChains
+	out.CAdvisorPort = in.CAdvisorPort
+	out.ProtectKernelDefaults = in.ProtectKernelDefaults
 	return nil
 }
 
